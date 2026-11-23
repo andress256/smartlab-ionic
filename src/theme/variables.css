@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =====================================================================
+ * Tema BRUTALISTA: alto contraste, bordes negros gruesos, sombras duras,
+ * esquinas rectas y colores planos saturados.
+ * ===================================================================== */
+:root {
+  --ion-color-primary: #000000;
+  --ion-color-primary-rgb: 0, 0, 0;
+  --ion-color-primary-contrast: #fde047;
+  --ion-color-primary-contrast-rgb: 253, 224, 71;
+  --ion-color-primary-shade: #000000;
+  --ion-color-primary-tint: #1a1a1a;
+
+  --ion-background-color: #fffbeb;
+  --ion-text-color: #000000;
+  --ion-font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+}
+
+/* normalize.css de Ionic pone "button { border: 0 }" (border-style: none) y anula las
+   clases border-* de Tailwind en los botones nativos; se restaura el estilo sólido. */
+button {
+  border-style: solid;
+}
+
+/* Barra superior negra con texto amarillo */
+.brutal-toolbar {
+  --background: #000000;
+  --color: #fde047;
+  --border-width: 0;
+}
+
+/* Buscador: se quita el estilo Material para que lo enmarque Tailwind */
+.brutal-search {
+  --background: transparent;
+  --box-shadow: none;
+  --border-radius: 0;
+  --color: #000000;
+  --placeholder-color: #404040;
+  --placeholder-opacity: 1;
+  --icon-color: #000000;
+  padding: 0;
+  font-family: 'Space Mono', ui-monospace, monospace;
+}
+
+/* Lista: sin "contain" para que no recorte las sombras duras de las tarjetas */
+.brutal-list {
+  contain: none;
+  background: transparent;
+}
+
+/* Tarjeta de incidencia (Shadow DOM de IonItem) */
+.brutal-item {
+  --background: transparent;
+  --padding-start: 16px;
+  --inner-padding-end: 16px;
+  --min-height: 0;
+}
+
+/* Campos del formulario del modal */
+.brutal-field {
+  --background: #ffffff;
+  --border-radius: 0;
+  --highlight-color-focused: #000000;
+  --highlight-height: 0;
+}
+
+/* Botón flotante: cuadrado, rosa y con borde negro */
+.brutal-fab {
+  --background: #f472b6;
+  --background-hover: #f9a8d4;
+  --background-activated: #ec4899;
+  --color: #000000;
+  --border-radius: 0;
+  --border-color: #000000;
+  --border-style: solid;
+  --border-width: 4px;
+  --box-shadow: 6px 6px 0 0 #000000;
+}
+
+/* Modal: esquinas rectas y alto relativo al viewport (vh) en tablet/escritorio */
+ion-modal.brutal-modal {
+  --border-radius: 0;
+  --border-width: 4px;
+  --border-color: #000000;
+  --box-shadow: 12px 12px 0 0 #000000;
+}
+@media (min-width: 768px) {
+  ion-modal.brutal-modal {
+    --width: min(640px, 92vw);
+    --height: 85vh;
+  }
+}
+
+/* Toast negro con sombra rosa */
+ion-toast.brutal-toast {
+  --background: #000000;
+  --color: #fde047;
+  --border-radius: 0;
+  --box-shadow: 6px 6px 0 0 #f472b6;
+  font-family: 'Space Mono', ui-monospace, monospace;
+  font-weight: 700;
+}
